@@ -10,13 +10,11 @@ Reza Khodayie
 
 # کتابخانه هایی که به کار میروند
 rubpy, pyrubi, rubka
+---
+**test**
 
 # نصب کتابخانه های مورد نیاز
 ```bash
 pip install rubpy
 pip install pyrubi
 pip install rubka
-
-
----
-**test**
