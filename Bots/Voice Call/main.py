@@ -5,10 +5,6 @@ import requests, urllib
 
 bot = Client("pyrubi")
 
-Admims = []
-
-Musics = []
-
 
 @bot.on_message()
 def music(app: Message):
@@ -28,14 +24,14 @@ def music(app: Message):
 						mime = file["mime"]
 						aa = app.reply("در حال دانلود...")["message_update"]["message_id"]
 						bot.download(object_guid=target, file_inline=file, message_id=msg_id, save_as=f"music.{mime}")
-						bot.play_voice(target, f"music.{mime}")
 						app.reply("در حال پخش...")
+						bot.play_voice(target, f"music.{mime}")
 				else:
 					link = text.split()[1]
 					aa = app.reply("در حال دانلود...")["message_update"]["message_id"]
 					urllib.request.urlretrieve(link, "music.mp3")
-					bot.play_voice(target, "music.mp3")
 					app.reply("در حال پخش...")
+					bot.play_voice(target, "music.mp3")
 			
 		except Exception as e:
 			app.reply(f"Error → {e}")
